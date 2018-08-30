@@ -79,10 +79,21 @@ else if (command === 'lookup') {
   }
 }
 // if section for the contains command
-else if (command === 'contains'){
+else if (command === 'contains') {
   const containString = prompt("Which letter of the employee whould you like to look at?");
 
-  // for(let i = 0; i < employeeList.length;i++){
-  //   const 
-  // }
+  for (let i = 0; i < employeeList.length; i++){
+    
+    const containName = employeeList[i].name;
+    var upperName = containName.toLowerCase();
+    var upperString = containString.toLowerCase();
+    if (upperName.includes(upperString)) {
+      render(employeeList[i].name);
+    }
+  }
+}
+// if section for the update command
+else if (command === 'update') {
+  const updateList = prompt("which employee's imformation would you like to change?");
+  
 }
