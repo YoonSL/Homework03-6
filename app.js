@@ -45,7 +45,7 @@ const command = prompt('which command would you like to use?')
 // if section for the print command
 if (command.toLowerCase() === 'print') {
   for (let i = 0; i < employeeList.length; i++) {
-    render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum)
+    render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum);
   }
 }
 // if section for the verify command 
@@ -104,10 +104,10 @@ else if (command.toLowerCase() === 'update') {
     var upperString = updateName.toLowerCase();
     if (upperName===updateName && updateField === 'office number') {
       employeeList[i].officeNum = updateValue;
-      render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum)
+      render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum);
     } else if (upperName===updateName && updateField === 'phone number') {
       employeeList[i].phoneNum = updateValue;
-      render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum)
+      render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum);
     }
   }
 }
@@ -128,6 +128,23 @@ else if (command.toLowerCase() === 'add') {
   employeeList.push(newEmployee);
 
   for (let i = 0; i < employeeList.length; i++) {
-  render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum)
+  render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum);
   }
+}
+
+// if section for the delete command
+
+else if (command.toLowerCase() === 'delete') {
+  const deleteEmployee = prompt("What is the name of the employee to be deleted");
+
+  for(let i = 0; i < employeeList.length; i++) {
+    const deleteName = employeeList[i].name;
+    if(deleteName.toLowerCase() === deleteEmployee.toLowerCase()){
+      delete employeeList[i];
+    }
+  }
+
+  for (let i = 0; i < employeeList.length; i++) {
+    render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum);
+    }
 }
