@@ -98,14 +98,14 @@ else if (command.toLowerCase() === 'update') {
   const updateField = prompt("Which field would you like to change?");
   const updateValue = prompt("Please tell us the new information");
 
-  for(let i = 0; i < employeeList.length; i++) {
+  for (let i = 0; i < employeeList.length; i++) {
     const containName = employeeList[i].name;
     var upperName = containName.toLowerCase();
     var upperString = updateName.toLowerCase();
-    if (upperName===updateName && updateField === 'office number') {
+    if (upperName === updateName && updateField === 'office number') {
       employeeList[i].officeNum = updateValue;
       render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum);
-    } else if (upperName===updateName && updateField === 'phone number') {
+    } else if (upperName === updateName && updateField === 'phone number') {
       employeeList[i].phoneNum = updateValue;
       render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum);
     }
@@ -128,7 +128,7 @@ else if (command.toLowerCase() === 'add') {
   employeeList.push(newEmployee);
 
   for (let i = 0; i < employeeList.length; i++) {
-  render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum);
+    render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum);
   }
 }
 
@@ -137,14 +137,16 @@ else if (command.toLowerCase() === 'add') {
 else if (command.toLowerCase() === 'delete') {
   const deleteEmployee = prompt("What is the name of the employee to be deleted");
 
-  for(let i = 0; i < employeeList.length; i++) {
+  for (let i = 0; i < employeeList.length; i++) {
     const deleteName = employeeList[i].name;
-    if(deleteName.toLowerCase() === deleteEmployee.toLowerCase()){
-      delete employeeList[i];
+    if (deleteName.toLowerCase() === deleteEmployee.toLowerCase()) {
+      delete employeeList[i].name;
+      delete employeeList[i].officeNum;
+      delete employeeList[i].phoneNum;
     }
   }
 
   for (let i = 0; i < employeeList.length; i++) {
     render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum);
-    }
+  }
 }
