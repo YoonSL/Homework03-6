@@ -43,13 +43,13 @@ const employeeList = [
 // command section this code below will ask the user for the command
 const command = prompt('which command would you like to use?')
 // if section for the print command
-if (command === 'print') {
+if (command.toLowerCase() === 'print') {
   for (let i = 0; i < employeeList.length; i++) {
     render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum)
   }
 }
 // if section for the verify command 
-else if (command === 'verify') {
+else if (command.toLowerCase() === 'verify') {
   const verifyName = prompt('Which employee would you like to verify?');
   let trueFalse = 'false';
   for (let i = 0; i < employeeList.length; i++) {
@@ -61,7 +61,7 @@ else if (command === 'verify') {
   render(trueFalse);
 }
 // if section for the lookup command
-else if (command === 'lookup') {
+else if (command.toLowerCase() === 'lookup') {
   const lookupName = prompt('Which employee would you like to lookup?');
   let lookupNumber = '0';
   let employeeUpper = '0';
@@ -79,7 +79,7 @@ else if (command === 'lookup') {
   }
 }
 // if section for the contains command
-else if (command === 'contains') {
+else if (command.toLowerCase() === 'contains') {
   const containString = prompt("Which letter of the employee whould you like to look at?");
 
   for (let i = 0; i < employeeList.length; i++) {
@@ -93,7 +93,7 @@ else if (command === 'contains') {
   }
 }
 // if section for the update command
-else if (command === 'update') {
+else if (command.toLowerCase() === 'update') {
   const updateName = prompt("Which employee's imformation would you like to change?");
   const updateField = prompt("Which field would you like to change?");
   const updateValue = prompt("Please tell us the new information");
@@ -109,5 +109,25 @@ else if (command === 'update') {
       employeeList[i].phoneNum = updateValue;
       render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum)
     }
+  }
+}
+
+// if section for the add command
+
+else if (command.toLowerCase() === 'add') {
+  const addName = prompt("What is the name of the new employee");
+  const addOffice = prompt("What is the new employee's office number?");
+  const addTelephone = prompt("what is the new employee's telephone number?");
+
+  var newEmployee = {
+    name: addName,
+    officeNum: addOffice,
+    phoneNum: addTelephone
+  }
+
+  employeeList.push(newEmployee);
+
+  for (let i = 0; i < employeeList.length; i++) {
+  render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum)
   }
 }
