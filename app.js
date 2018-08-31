@@ -82,8 +82,8 @@ else if (command === 'lookup') {
 else if (command === 'contains') {
   const containString = prompt("Which letter of the employee whould you like to look at?");
 
-  for (let i = 0; i < employeeList.length; i++){
-    
+  for (let i = 0; i < employeeList.length; i++) {
+
     const containName = employeeList[i].name;
     var upperName = containName.toLowerCase();
     var upperString = containString.toLowerCase();
@@ -94,6 +94,20 @@ else if (command === 'contains') {
 }
 // if section for the update command
 else if (command === 'update') {
-  const updateList = prompt("which employee's imformation would you like to change?");
-  
+  const updateName = prompt("Which employee's imformation would you like to change?");
+  const updateField = prompt("Which field would you like to change?");
+  const updateValue = prompt("Please tell us the new information");
+
+  for(let i = 0; i < employeeList.length; i++) {
+    const containName = employeeList[i].name;
+    var upperName = containName.toLowerCase();
+    var upperString = updateName.toLowerCase();
+    if (upperName===updateName && updateField === 'office number') {
+      employeeList[i].officeNum = updateValue;
+      render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum)
+    } else if (upperName===updateName && updateField === 'phone number') {
+      employeeList[i].phoneNum = updateValue;
+      render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum)
+    }
+  }
 }
