@@ -45,8 +45,9 @@ const employeeList = [
 //   const command = prompt(question);
 //   return command;
 // }
+   let repeatBool = false; 
 
-
+  while(repeatBool != true){
 
   const command = prompt('which command would you like to use?');
 
@@ -55,6 +56,7 @@ const employeeList = [
     for (let i = 0; i < employeeList.length; i++) {
       render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum);
     }
+    repeatBool = true;
   }
   // if section for the verify command 
   else if (command.toLowerCase() === 'verify') {
@@ -67,6 +69,7 @@ const employeeList = [
       }
     }
     render(trueFalse);
+    repeatBool = true;
   }
   // if section for the lookup command
   else if (command.toLowerCase() === 'lookup') {
@@ -85,6 +88,7 @@ const employeeList = [
     } else {
       render("None");
     }
+    repeatBool = true;
   }
   // if section for the contains command
   else if (command.toLowerCase() === 'contains') {
@@ -99,11 +103,12 @@ const employeeList = [
         render(employeeList[i].name);
       }
     }
+    repeatBool = true;
   }
   // if section for the update command
   else if (command.toLowerCase() === 'update') {
     const updateName = prompt("Which employee's imformation would you like to change?");
-    const updateField = prompt("Which field would you like to change?");
+    const updateField = prompt("Which field would you like to change(office number or phone number?");
     const updateValue = prompt("Please tell us the new information");
 
     for (let i = 0; i < employeeList.length; i++) {
@@ -113,11 +118,14 @@ const employeeList = [
       if (upperName === updateName && updateField === 'office number') {
         employeeList[i].officeNum = updateValue;
         render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum);
+        
       } else if (upperName === updateName && updateField === 'phone number') {
         employeeList[i].phoneNum = updateValue;
         render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum);
+        
       }
     }
+    repeatBool = true;
   }
 
   // if section for the add command
@@ -138,6 +146,8 @@ const employeeList = [
     for (let i = 0; i < employeeList.length; i++) {
       render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum);
     }
+    repeatBool = true;
+
   }
 
   // if section for the delete command
@@ -157,5 +167,6 @@ const employeeList = [
     for (let i = 0; i < employeeList.length; i++) {
       render(employeeList[i].name, employeeList[i].officeNum, employeeList[i].phoneNum);
     }
+    repeatBool = true;
   }
-
+}
