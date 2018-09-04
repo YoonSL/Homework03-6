@@ -1,4 +1,10 @@
-# Homework03-6
+# Instructions
+
+Create a program that does all of the following:
+
+*Hint:* Flowchart 1 step at a time. Implement that step and when it works properly, flowchart the next.
+
+* Prompt the user to input a command, then do the following:
 
 1. If the command is `print` print all the employee names, office numbers, and telephone numbers
 
@@ -34,10 +40,8 @@
   * delete the object with this name property from the array entirely.
   * print the updated `employeeList`
 
-8. If the command is `fix` :
-    * prompt user for the name they would like to change.
-    * prompt user for the corrected name.
-    * print all the list of all the current employees.
+8. Add any new command that you like. 
+  * Document the new command in your `readme.md`. 
 
-9. If the command is `list` :
-    * print out the list of the command.
+
+
